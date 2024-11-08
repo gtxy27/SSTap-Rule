@@ -33,7 +33,7 @@ jobs:
           find sstap-rules/rules -name "*.rule"
           
           # 查找并确认 .rule 文件
-          find sstap-rules/FQrabbit-SSTap-Rule-07cbe8f/rules -name "*.rule"
+          #find sstap-rules/FQrabbit-SSTap-Rule-07cbe8f/rules -name "*.rule"
 
           
       - name: Setup Python
