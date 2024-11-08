@@ -22,13 +22,7 @@ for filename in os.listdir(input_directory):
                     continue  # 跳过空行和注释
                 # 假设每行是一个IP或域名，没有前缀
                 # 检查是否是IP地址
-                if '.' in line and line.count('.') == 3:
-                    # 假设所有IP地址都需要转换为CIDR格式，这里使用/32作为示例
-                    rules.append(f"IP-CIDR,{line}/32")
-                else:
-                    # 假设所有非IP地址都是域名，并使用域名后缀匹配
-                    rules.append(f"DOMAIN-SUFFIX,{line}")
-
+                rules.append(f"IP-CIDR,{line}")
 # 去重并排序规则（可选）
 rules = sorted(set(rules))
 
