@@ -17,10 +17,12 @@ jobs:
 
       - name: Download All Rule Files
         run: |
-          mkdir -p rules
-          # 下载所有 .rule 文件
-          curl -L https://api.github.com/repos/FQrabbit/SSTap-Rule/tarball | tar xz --strip=1 --wildcards '*/rules/*.rule' -C rules
-
+          # 下载整个仓库为压缩文件
+          curl -L https://github.com/FQrabbit/SSTap-Rule/archive/refs/heads/main.tar.gz -o sstap-rule.tar.gz
+          # 解压缩文件到指定目录
+          mkdir -p sstap-rules
+          tar -xzvf sstap-rule.tar.gz -C sstap-rules --strip-components=1
+          
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
