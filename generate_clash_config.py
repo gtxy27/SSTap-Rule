@@ -2,7 +2,7 @@ import os
 import glob
 import sys
 
-input_directory = "./rules/"  # 规则文件夹路径
+input_directory = "/home/runner/work/SSTap-Rule/SSTap-Rule/rules"  # 规则文件夹路径
 output_file = "rules.list"  # 输出文件名
 rule_files = glob.glob("sstap-rules/**/*.rule", recursive=True)
 current_directory = os.getcwd()
