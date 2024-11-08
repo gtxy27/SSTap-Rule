@@ -10,18 +10,24 @@ print(f"The current working directory is: {current_directory}")
 script_directory = os.path.dirname(os.path.abspath(__file__))
 print(f"The script is located in: {script_directory}")
 def print_directory_tree(start_path='.'):
+    # 获取当前工作目录的绝对路径
+    current_directory = os.getcwd()
+
     for root, dirs, files in os.walk(start_path):
+        # 计算相对路径
+        relative_root = os.path.relpath(root, current_directory)
+        
         # 打印当前目录路径
-        level = root.replace(start_path, '').count(os.sep)
+        level = relative_root.count(os.sep)
         indent = ' ' * 4 * level
-        print(f"{indent}[{os.path.basename(root)}/]")
+        print(f"{indent}[{relative_root}/]")
         
         # 打印该目录下的文件
         sub_indent = ' ' * 4 * (level + 1)
         for file in files:
             print(f"{sub_indent}{file}")
 
-# 显示当前执行目录的目录树
+# 显示当前执行目录的相对路径的目录树
 print_directory_tree()
 if not rule_files:
     print("Error: No .rule files found.")
