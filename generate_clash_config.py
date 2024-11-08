@@ -9,7 +9,6 @@ entries = os.listdir(input_directory)
 for entry in entries:
     print(entry)
 
-    sys.exit(1)
 # 初始化列表用于存储规则
 rules = []
 
