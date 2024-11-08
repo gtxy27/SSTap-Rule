@@ -22,6 +22,10 @@ jobs:
           # 解压缩文件到指定目录
           mkdir -p sstap-rules
           tar -xzvf sstap-rule.tar.gz -C sstap-rules --strip-components=1
+
+      - name: List Downloaded Files
+        run: |
+          find sstap-rules -type f
           
       - name: Setup Python
         uses: actions/setup-python@v2
