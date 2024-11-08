@@ -3,7 +3,7 @@ name: Generate List Config
 on:
   push:
     branches:
-      - main  # 当推送到主分支时触发
+      - master  # 当推送到主分支时触发
   schedule:
     - cron: "0 0 * * *"  # 每天定时触发任务
 
