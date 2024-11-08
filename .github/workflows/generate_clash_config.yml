@@ -34,7 +34,9 @@ jobs:
           
           # 查找并确认 .rule 文件
           #find sstap-rules/FQrabbit-SSTap-Rule-07cbe8f/rules -name "*.rule"
-
+      - name: Check Rule Files
+        run: |
+          ls -R /home/runner/work/SSTap-Rule/SSTap-Rule/rules
           
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -48,9 +50,7 @@ jobs:
       - name: Parse and Convert Rules to List Format
         run: |
           python generate_clash_config.py
-      - name: Check Rule Files
-        run: |
-          ls -R /home/runner/work/SSTap-Rule/SSTap-Rule/rules
+
       - name: Commit and Push List Config
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
