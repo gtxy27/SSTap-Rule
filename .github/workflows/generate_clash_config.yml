@@ -18,7 +18,8 @@ jobs:
       - name: Download and Extract Rule Files
         run: |
           # 下载整个仓库的 .tar.gz 文件
-          curl -L https://github.com/FQrabbit/SSTap-Rule/archive/refs/heads/main.tar.gz -o sstap-rule.tar.gz
+          #curl -L https://github.com/FQrabbit/SSTap-Rule/archive/refs/heads/main.tar.gz -o sstap-rule.tar.gz
+          curl -L https://api.github.com/repos/FQrabbit/SSTap-Rule/tarball -o sstap-rule.tar.gz #| tar xz --strip=1 --wildcards '*/rules/*.rule' -C rules
           
           # 解压缩 .tar.gz 文件得到 .tar
           mkdir -p sstap-rules
