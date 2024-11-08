@@ -8,8 +8,6 @@ entries = os.listdir(input_directory)
 # 打印所有文件和目录
 for entry in entries:
     print(entry)
-if not rule_files:
-    print("Error: No .rule files found.")
 
     sys.exit(1)
 # 初始化列表用于存储规则
