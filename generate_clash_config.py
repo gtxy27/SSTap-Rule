@@ -22,7 +22,7 @@ for filename in os.listdir(input_directory):
                     continue  # 跳过空行和注释
                 # 假设每行是一个IP或域名，没有前缀
                 # 检查是否是IP地址
-                rules.append(f"IP-CIDR,{line}")
+                rules.append(f"IP-CIDR,{line},no-resolve")
 # 去重并排序规则（可选）
 rules = sorted(set(rules))
 
