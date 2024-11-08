@@ -7,6 +7,8 @@ output_file = "rules.list"  # 输出文件名
 rule_files = glob.glob("sstap-rules/**/*.rule", recursive=True)
 current_directory = os.getcwd()
 print(f"The current working directory is: {current_directory}")
+script_directory = os.path.dirname(os.path.abspath(__file__))
+print(f"The script is located in: {script_directory}")
 if not rule_files:
     print("Error: No .rule files found.")
 
