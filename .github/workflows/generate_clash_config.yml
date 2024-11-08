@@ -25,7 +25,7 @@ jobs:
           tar -xzvf sstap-rule.tar.gz -C sstap-rules --strip-components=1
           
           # 查找并确认 .rule 文件
-          find sstap-rules -name "*.rule"
+          find sstap-rules/FQrabbit-SSTap-Rule-07cbe8f/rules -name "*.rule"
 
           
       - name: Setup Python
