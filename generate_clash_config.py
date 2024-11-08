@@ -14,7 +14,7 @@ rules = []
 
 # 遍历 rules 文件夹中的所有 .rule 文件并转换规则
 for filename in os.listdir(input_directory):
-    if filename.endswith(".rule"):
+    if filename.endswith(".rules"):
         with open(os.path.join(input_directory, filename), "r") as f:
             for line in f:
                 line = line.strip()
