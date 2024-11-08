@@ -1,7 +1,7 @@
 import os
 
-input_directory = "rules"  # 规则文件夹路径
-output_file = "combined_rules.list"  # 输出文件名
+input_directory = "sstap-rules/rules"  # 规则文件夹路径
+output_file = "rules.list"  # 输出文件名
 
 # 初始化列表用于存储规则
 rules = []
