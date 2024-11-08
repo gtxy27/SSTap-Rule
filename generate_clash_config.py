@@ -5,8 +5,11 @@ import sys
 input_directory = "sstap-rules/rules"  # 规则文件夹路径
 output_file = "rules.list"  # 输出文件名
 rule_files = glob.glob("sstap-rules/**/*.rule", recursive=True)
+current_directory = os.getcwd()
+print(f"The current working directory is: {current_directory}")
 if not rule_files:
     print("Error: No .rule files found.")
+
     sys.exit(1)
 # 初始化列表用于存储规则
 rules = []
