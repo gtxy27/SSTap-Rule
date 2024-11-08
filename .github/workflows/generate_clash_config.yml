@@ -47,7 +47,7 @@ jobs:
 
       - name: Parse and Convert Rules to List Format
         run: |
-          python generate_list_config.py
+          python generate_clash_config.py
 
       - name: Commit and Push List Config
         env:
