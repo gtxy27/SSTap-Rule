@@ -48,7 +48,9 @@ jobs:
       - name: Parse and Convert Rules to List Format
         run: |
           python generate_clash_config.py
-
+      - name: Check Rule Files
+        run: |
+          ls -R /home/runner/work/SSTap-Rule/SSTap-Rule/rules
       - name: Commit and Push List Config
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
