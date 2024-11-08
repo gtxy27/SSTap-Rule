@@ -1,0 +1,44 @@
+name: Generate Clash Config
+
+on:
+  push:
+    branches:
+      - main  # 当推送到主分支时触发
+  schedule:
+    - cron: "0 0 * * *"  # 每天定时触发任务
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Download SSTap Rules File
+        run: |
+          curl -o sstap-rules.txt https://raw.githubusercontent.com/FQrabbit/SSTap-Rule/main/sstap-rules.txt
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Parse and Convert Rules to Clash YAML
+        run: |
+          python generate_clash_config.py
+
+      - name: Commit and Push Clash Config
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add clash_config.yaml
+          git commit -m "Auto-update Clash config"
+          git push
