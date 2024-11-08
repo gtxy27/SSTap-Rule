@@ -1,0 +1,36 @@
+name: Sync Fork
+
+on:
+  schedule:
+    # 每天凌晨1点运行
+    - cron: '0 1 * * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: master  # 或你的默认分支名
+        fetch-depth: 0  # 确保可以获取所有历史
+
+    - name: Setup Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Add upstream remote
+      run: git remote add upstream 'https://github.com/FQrabbit/SSTap-Rule.git'
+
+    - name: Fetch upstream
+      run: git fetch upstream
+
+    - name: Merge upstream/main into main
+      run: git merge upstream/main --allow-unrelated-histories
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: master  # 或你的默认分支名
