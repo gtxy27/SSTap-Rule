@@ -15,17 +15,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Download All Rule Files
+      - name: Download and Extract Rule Files
         run: |
-          # 下载整个仓库为压缩文件
+          # 下载整个仓库的 .tar.gz 文件
           curl -L https://github.com/FQrabbit/SSTap-Rule/archive/refs/heads/main.tar.gz -o sstap-rule.tar.gz
-          # 解压缩文件到指定目录
+          
+          # 解压缩 .tar.gz 文件得到 .tar
           mkdir -p sstap-rules
           tar -xzvf sstap-rule.tar.gz -C sstap-rules --strip-components=1
+          
+          # 查找并确认 .rule 文件
+          find sstap-rules -name "*.rule"
 
-      - name: List Downloaded Files
-        run: |
-          find sstap-rules -type f
           
       - name: Setup Python
         uses: actions/setup-python@v2
