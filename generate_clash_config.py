@@ -9,7 +9,7 @@ entries = os.listdir(input_directory)
 for entry in entries:
     print(entry)
 
-初始化列表用于存储规则
+# 初始化列表用于存储规则
 rules = []
 
 # 遍历 rules 文件夹中的所有 .rule 文件并转换规则
