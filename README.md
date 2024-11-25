@@ -1,5 +1,6 @@
 # SSTap-Rule
 
+## **本项目fork至[SSTap-Rule](https://github.com/FQrabbit/SSTap-Rule/),利用action将所有ip地址放到一个文件当中，至于用途各位自己探索**
 [![加入 Telegram 群组](https://img.shields.io/badge/%E5%8A%A0%E5%85%A5-Telegram_%E7%BE%A4%E7%BB%84-brightgreen.svg)](https://t.me/SSTapRule)
 
 <sup>[Changelog](https://github.com/FQrabbit/SSTap-Rule/blob/master/Changelog.md "更新日志")</sup>
